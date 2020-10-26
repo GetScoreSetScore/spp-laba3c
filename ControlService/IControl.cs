@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-
+using System.ServiceModel.Syndication;
 namespace ControlService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
@@ -13,6 +13,10 @@ namespace ControlService
     {
         [OperationContract]
         string GetData(string value);
+
+        [OperationContract]
+        
+        SynItems ProcessFeeds(List<string> feeds, List<string> tags, List<string> mails);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
@@ -41,5 +45,30 @@ namespace ControlService
             get { return stringValue; }
             set { stringValue = value; }
         }
+    }
+    public class SFeed
+    {
+
+        List<SyndicationItem> items = new List<SyndicationItem>();
+        public List<SyndicationItem> Items
+        {
+            get { return items; }
+            set { items = value; }
+        }
+
+        //[DataMember]
+        //public List<SyndicationItem> Items = new List<SyndicationItem>();
+    }
+    [DataContract]
+    public class SynItems
+    {
+        [DataMember]
+        public List<string> Summaries = new List<string>();
+
+        [DataMember]
+        public List<string> Titles = new List<string>();
+
+        [DataMember]
+        public List<string> Links = new List<string>();
     }
 }

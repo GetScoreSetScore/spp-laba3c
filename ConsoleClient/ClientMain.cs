@@ -13,6 +13,12 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
+            List<string> urls = new List<string>();
+            List<string> recipients = new List<string>();
+            List<string> tags = new List<string>();
+            urls.Add("https://www.ibm.com/developerworks/views/global/rss/libraryview.jsp");
+            recipients.Add("andy844551@gmail.com");
+            tags.Add("development");
             ControlClient controlClient = new ControlClient();
             FilterClient filterClient = new FilterClient();
             LoadClient loadClient = new LoadClient();
@@ -22,6 +28,8 @@ namespace ConsoleClient
             Console.WriteLine(filterClient.GetData("test"));
             Console.WriteLine(loadClient.GetData("test"));
             Console.WriteLine(mailClient.GetData("test"));
+
+            SynItems items = controlClient.ProcessFeeds(urls.ToArray(), tags.ToArray(),  recipients.ToArray());
             Console.ReadLine();
 
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-
+using System.ServiceModel.Syndication;
 namespace LoadService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
@@ -13,6 +13,9 @@ namespace LoadService
     {
         [OperationContract]
         string GetData(string value);
+
+        //[OperationContract]
+        //SFeed LoadFeed(string url);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
@@ -26,7 +29,6 @@ namespace LoadService
     public class CompositeType
     {
         bool boolValue = true;
-        string stringValue = "Hello ";
 
         [DataMember]
         public bool BoolValue
@@ -36,10 +38,12 @@ namespace LoadService
         }
 
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string StringValue { get; set; } = "Hello ";
+    }
+    [DataContract]
+    public class SFeed
+    {
+        [DataMember]
+        public List<SyndicationItem> Items = new List<SyndicationItem>();
     }
 }

@@ -70,7 +70,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\ControlServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ControlServiceReference\ConsoleClient.ControlServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ControlServiceReference\ConsoleClient.ControlServiceReference.SynItems.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ControlServiceReference\ControlService.xsd">
@@ -122,6 +128,7 @@
     <None Include="Connected Services\MailServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\System.ServiceModel.Syndication.Rss20FeedFormatter.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
