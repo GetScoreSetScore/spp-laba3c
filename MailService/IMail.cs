@@ -12,7 +12,7 @@ namespace MailService
     public interface IMail
     {
         [OperationContract]
-        string GetData(int value);
+        string GetData(string value);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

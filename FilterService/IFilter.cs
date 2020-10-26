@@ -12,7 +12,7 @@ namespace FilterService
     public interface IFilter
     {
         [OperationContract]
-        string GetData(int value);
+        string GetData(string value);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

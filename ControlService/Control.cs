@@ -10,9 +10,9 @@ namespace ControlService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Control : IControl
     {
-        public string GetData(int value)
+        public string GetData(string value)
         {
-            return string.Format("Control: {0}", value);
+            return value +"Control";
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)

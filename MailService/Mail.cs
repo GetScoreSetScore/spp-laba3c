@@ -10,9 +10,9 @@ namespace MailService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Mail : IMail
     {
-        public string GetData(int value)
+        public string GetData(string value)
         {
-            return string.Format("Mail: {0}", value);
+            return value+"Mail";
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
