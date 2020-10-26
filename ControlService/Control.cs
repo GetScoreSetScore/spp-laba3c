@@ -14,6 +14,12 @@ namespace ControlService
     {
         public string GetData(string value)
         {
+            LoadClient loadClient = new LoadClient(new WSHttpBinding(), new EndpointAddress("http://localhost:8733/LoadService/"));
+            FilterClient filterClient = new FilterClient(new WSHttpBinding(), new EndpointAddress("http://localhost:8733/FilterService/"));
+            MailClient mailClient = new MailClient(new WSHttpBinding(), new EndpointAddress("http://localhost:8733/MailService/"));
+            value = loadClient.GetData(value);
+            value = filterClient.GetData(value);
+            value = mailClient.GetData(value);
             return value +"Control";
         }
 
