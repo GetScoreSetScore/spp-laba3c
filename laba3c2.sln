@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30105.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlService", "ControlService\ControlService.csproj", "{BB34A456-968A-46DA-85F4-CB820F10298F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B420F19-6927-4333-8865-FF4212A8F6BF} = {9B420F19-6927-4333-8865-FF4212A8F6BF}
+		{0CF0E9A7-61D9-40A4-B6C0-AE17613B8F37} = {0CF0E9A7-61D9-40A4-B6C0-AE17613B8F37}
+		{B96277FF-5BD4-4DC7-90D0-54F01E508B44} = {B96277FF-5BD4-4DC7-90D0-54F01E508B44}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceHost", "ServiceHost\ServiceHost.csproj", "{40FFAF27-7A89-4962-ADE5-92496C770EA2}"
 EndProject
