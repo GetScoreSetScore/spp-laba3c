@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleClient.ControlServiceReference;
 using ConsoleClient.FilterServiceReference;
-using ConsoleClient.LoadServiceReference;
 using ConsoleClient.MailServiceReference;
 namespace ConsoleClient
 {
@@ -21,12 +20,9 @@ namespace ConsoleClient
             tags.Add("development");
             ControlClient controlClient = new ControlClient();
             FilterClient filterClient = new FilterClient();
-            LoadClient loadClient = new LoadClient();
             MailClient mailClient = new MailClient();
             Console.ReadLine();
-            Console.WriteLine(controlClient.GetData("test"));
             Console.WriteLine(filterClient.GetData("test"));
-            Console.WriteLine(loadClient.GetData("test"));
             Console.WriteLine(mailClient.GetData("test"));
 
             SynItems items = controlClient.ProcessFeeds(urls.ToArray(), tags.ToArray(),  recipients.ToArray());

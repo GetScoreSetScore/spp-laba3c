@@ -89,10 +89,10 @@
     <None Include="Connected Services\FilterServiceReferenceCon\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\LoadServiceReferenceCon\ControlService.LoadServiceReferenceCon.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\LoadServiceReferenceCon\Arrays.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\LoadServiceReferenceCon\LoadService.xsd">
+    <None Include="Connected Services\LoadServiceReferenceCon\CommonLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\LoadServiceReferenceCon\service.wsdl" />
@@ -115,6 +115,7 @@
     <None Include="Connected Services\MailServiceReferenceCon\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\CommonLibrary.SynItems.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -159,6 +160,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{c471ff36-fa02-43d8-89e6-e158e322ad6f}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -11,71 +11,59 @@ using System.Xml;
 using System.ServiceModel.Syndication;
 using System.Net.Mail;
 using System.Net;
+using CommonLibrary;
 namespace ControlService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Control : IControl
     {
-        public string GetData(string value)
-        {
-            LoadClient loadClient = new LoadClient(new WSHttpBinding(), new EndpointAddress("http://localhost:8733/LoadService/"));
-            FilterClient filterClient = new FilterClient(new WSHttpBinding(), new EndpointAddress("http://localhost:8733/FilterService/"));
-            MailClient mailClient = new MailClient(new WSHttpBinding(), new EndpointAddress("http://localhost:8733/MailService/"));
-            value = loadClient.GetData(value);
-            value = filterClient.GetData(value);
-            value = mailClient.GetData(value);
-            return value +"Control";
-        }
         public SynItems ProcessFeeds(List<string> feedurls, List<string> tags, List<string> recipients)
         {
-            SFeed filtereditems = new SFeed();
-            foreach(string feedurl in feedurls)
+            LoadClient loadClient = new LoadClient(new WSHttpBinding() { MaxReceivedMessageSize = 2000000000, MaxBufferPoolSize = 2000000000 }, new EndpointAddress("http://localhost:8733/LoadService/"));
+            SynItems filtereditems = new SynItems();
+            foreach (string feedurl in feedurls)
             {
-                SFeed items=LoadFeed(feedurl);
+                SynItems items = loadClient.LoadFeed(feedurl);
                 items = FilterItems(items, tags);
-                filtereditems.Items.AddRange(items.Items);
+                filtereditems.Summaries.AddRange(items.Summaries);
+                filtereditems.Links.AddRange(items.Links);
+                filtereditems.Titles.AddRange(items.Titles);
             }
             SendMail(filtereditems, recipients);
-            SynItems res = new SynItems();
-            res.Summaries = filtereditems.Items.Select(item=>item.Summary.Text).ToList();
-            res.Links = filtereditems.Items.Select(item => item.Links[0].Uri.ToString()).ToList();
-            res.Titles = filtereditems.Items.Select(item => item.Title.Text).ToList();
-            return res;
+            return filtereditems;
         }
-        public SFeed LoadFeed(string url)
+        public SynItems FilterItems(SynItems items, List<string> tags)
         {
-            XmlReader reader = XmlReader.Create(url);
-            SyndicationFeed feed = SyndicationFeed.Load(reader);
-            reader.Close();
-            SFeed result = new SFeed();
-            result.Items = feed.Items.ToList();
-            return result;
-        }
-        public SFeed FilterItems(SFeed items, List<string> tags)
-        {
-            SFeed result = new SFeed();
-            foreach (SyndicationItem item in items.Items)
+            SynItems result = new SynItems();
+            for(int i =0;i<items.Summaries.Count;i++)
             {
                 if (tags.Any())
                 {
                     foreach (string t in tags)
                     {
-                        if (item.Summary?.Text.ToUpper().Contains(t.ToUpper()) ?? false)
+                        if (items.Summaries[i].ToUpper().Contains(t.ToUpper()))
                         {
-                            result.Items.Add(item);
+                            result.Summaries.Add(items.Summaries[i]);
+                            result.Links.Add(items.Links[i]);
+                            result.Titles.Add(items.Titles[i]);
+
                             break;
                         }
                     }
                 }
                 else
-                    result.Items.Add(item);
+                {
+                    result.Summaries.Add(items.Summaries[i]);
+                    result.Links.Add(items.Links[i]);
+                    result.Titles.Add(items.Titles[i]);
+                }
             }
             return result;
         }
-        public void SendMail(SFeed items, List<string> recipients)
+        public void SendMail(SynItems items, List<string> recipients)
         {
             string message = message = string.Join(string.Empty,
-                items.Items.Select(item => "<a href=\"" + item.Links.First().Uri + "\">" + item.Title.Text + "</a>" + "<br>").ToArray());
+                items.Links.Zip(items.Titles, (first, second) => "<a href=\"" + first + "\">" + second + "</a><br>"));
 
             string subject = "Selected RSS feed at " + DateTime.Now;
             string sender = "phpmailerlaba@gmail.com";
@@ -107,18 +95,6 @@ namespace ControlService
                 Console.WriteLine(ex.ToString());
             }
             mailmessage.Dispose();
-        }
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
         }
     }
 }

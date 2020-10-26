@@ -73,9 +73,6 @@
     <None Include="Connected Services\ControlServiceReference\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ControlServiceReference\ConsoleClient.ControlServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ControlServiceReference\ConsoleClient.ControlServiceReference.SynItems.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -102,7 +99,10 @@
     <None Include="Connected Services\FilterServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\LoadServiceReference\ConsoleClient.LoadServiceReference.CompositeType.datasource">
+    <None Include="Connected Services\LoadServiceReference\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoadServiceReference\ConsoleClient.LoadServiceReference.SynItems.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\LoadServiceReference\LoadService.xsd">
@@ -186,6 +186,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{c471ff36-fa02-43d8-89e6-e158e322ad6f}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

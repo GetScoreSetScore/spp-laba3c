@@ -15,18 +15,21 @@ namespace ConsoleClient.LoadServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/LoadService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SynItems", Namespace="http://schemas.datacontract.org/2004/07/LoadService")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SynItems : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private string[] LinksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private string[] SummariesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] TitlesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,27 +42,40 @@ namespace ConsoleClient.LoadServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public string[] Links {
             get {
-                return this.BoolValueField;
+                return this.LinksField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((object.ReferenceEquals(this.LinksField, value) != true)) {
+                    this.LinksField = value;
+                    this.RaisePropertyChanged("Links");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public string[] Summaries {
             get {
-                return this.StringValueField;
+                return this.SummariesField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((object.ReferenceEquals(this.SummariesField, value) != true)) {
+                    this.SummariesField = value;
+                    this.RaisePropertyChanged("Summaries");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] Titles {
+            get {
+                return this.TitlesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitlesField, value) != true)) {
+                    this.TitlesField = value;
+                    this.RaisePropertyChanged("Titles");
                 }
             }
         }
@@ -78,17 +94,11 @@ namespace ConsoleClient.LoadServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoadServiceReference.ILoad")]
     public interface ILoad {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoad/GetData", ReplyAction="http://tempuri.org/ILoad/GetDataResponse")]
-        string GetData(string value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoad/LoadFeed", ReplyAction="http://tempuri.org/ILoad/LoadFeedResponse")]
+        ConsoleClient.LoadServiceReference.SynItems LoadFeed(string url);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoad/GetData", ReplyAction="http://tempuri.org/ILoad/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(string value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoad/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ILoad/GetDataUsingDataContractResponse")]
-        ConsoleClient.LoadServiceReference.CompositeType GetDataUsingDataContract(ConsoleClient.LoadServiceReference.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoad/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ILoad/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<ConsoleClient.LoadServiceReference.CompositeType> GetDataUsingDataContractAsync(ConsoleClient.LoadServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoad/LoadFeed", ReplyAction="http://tempuri.org/ILoad/LoadFeedResponse")]
+        System.Threading.Tasks.Task<ConsoleClient.LoadServiceReference.SynItems> LoadFeedAsync(string url);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -118,20 +128,12 @@ namespace ConsoleClient.LoadServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(string value) {
-            return base.Channel.GetData(value);
+        public ConsoleClient.LoadServiceReference.SynItems LoadFeed(string url) {
+            return base.Channel.LoadFeed(url);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(string value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
-        public ConsoleClient.LoadServiceReference.CompositeType GetDataUsingDataContract(ConsoleClient.LoadServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleClient.LoadServiceReference.CompositeType> GetDataUsingDataContractAsync(ConsoleClient.LoadServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<ConsoleClient.LoadServiceReference.SynItems> LoadFeedAsync(string url) {
+            return base.Channel.LoadFeedAsync(url);
         }
     }
 }

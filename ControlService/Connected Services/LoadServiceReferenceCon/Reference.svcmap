@@ -25,7 +25,8 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e0b31632-0bc9-4a7a-830b-a4d1815e56e1" SourceId="1" SourceUrl="http://localhost:8733/LoadService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="ef1d9522-d2ed-4a77-a279-cd88651b9ffb" SourceId="1" SourceUrl="http://localhost:8733/LoadService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="28434155-9cd3-4e8c-af01-36ae3a90528f" SourceId="1" SourceUrl="http://localhost:8733/LoadService/mex" />
-    <MetadataFile FileName="LoadService.xsd" MetadataType="Schema" ID="e0e6d280-515a-45b0-8860-e165413111df" SourceId="1" SourceUrl="http://localhost:8733/LoadService/mex" />
+    <MetadataFile FileName="CommonLibrary.xsd" MetadataType="Schema" ID="cc29fe84-4421-4c8f-8b6f-a13aa9ccc029" SourceId="1" SourceUrl="http://localhost:8733/LoadService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="2b53d387-7ce7-4d44-bfc9-33901403ce41" SourceId="1" SourceUrl="http://localhost:8733/LoadService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

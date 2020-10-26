@@ -90,88 +90,15 @@ namespace ConsoleClient.ControlServiceReference {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/ControlService")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ControlServiceReference.IControl")]
     public interface IControl {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IControl/GetData", ReplyAction="http://tempuri.org/IControl/GetDataResponse")]
-        string GetData(string value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IControl/GetData", ReplyAction="http://tempuri.org/IControl/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(string value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IControl/ProcessFeeds", ReplyAction="http://tempuri.org/IControl/ProcessFeedsResponse")]
         ConsoleClient.ControlServiceReference.SynItems ProcessFeeds(string[] feeds, string[] tags, string[] mails);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IControl/ProcessFeeds", ReplyAction="http://tempuri.org/IControl/ProcessFeedsResponse")]
         System.Threading.Tasks.Task<ConsoleClient.ControlServiceReference.SynItems> ProcessFeedsAsync(string[] feeds, string[] tags, string[] mails);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IControl/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IControl/GetDataUsingDataContractResponse")]
-        ConsoleClient.ControlServiceReference.CompositeType GetDataUsingDataContract(ConsoleClient.ControlServiceReference.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IControl/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IControl/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<ConsoleClient.ControlServiceReference.CompositeType> GetDataUsingDataContractAsync(ConsoleClient.ControlServiceReference.CompositeType composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -201,28 +128,12 @@ namespace ConsoleClient.ControlServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(string value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataAsync(string value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
         public ConsoleClient.ControlServiceReference.SynItems ProcessFeeds(string[] feeds, string[] tags, string[] mails) {
             return base.Channel.ProcessFeeds(feeds, tags, mails);
         }
         
         public System.Threading.Tasks.Task<ConsoleClient.ControlServiceReference.SynItems> ProcessFeedsAsync(string[] feeds, string[] tags, string[] mails) {
             return base.Channel.ProcessFeedsAsync(feeds, tags, mails);
-        }
-        
-        public ConsoleClient.ControlServiceReference.CompositeType GetDataUsingDataContract(ConsoleClient.ControlServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<ConsoleClient.ControlServiceReference.CompositeType> GetDataUsingDataContractAsync(ConsoleClient.ControlServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }
 }

@@ -5,45 +5,13 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.ServiceModel.Syndication;
+using CommonLibrary;
 namespace LoadService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface ILoad
     {
         [OperationContract]
-        string GetData(string value);
-
-        //[OperationContract]
-        //SFeed LoadFeed(string url);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Add your service operations here
-    }
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "LoadService.ContractType".
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue { get; set; } = "Hello ";
-    }
-    [DataContract]
-    public class SFeed
-    {
-        [DataMember]
-        public List<SyndicationItem> Items = new List<SyndicationItem>();
+        SynItems LoadFeed(string url);
     }
 }
