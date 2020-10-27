@@ -60,6 +60,7 @@
             this.ButtonDeleteFeed.TabIndex = 44;
             this.ButtonDeleteFeed.Text = "Delete RSS feed";
             this.ButtonDeleteFeed.UseVisualStyleBackColor = true;
+            this.ButtonDeleteFeed.Click += new System.EventHandler(this.ButtonDeleteFeed_Click);
             // 
             // ButtonDeleteRecipient
             // 
@@ -69,6 +70,7 @@
             this.ButtonDeleteRecipient.TabIndex = 43;
             this.ButtonDeleteRecipient.Text = "Delete recipient";
             this.ButtonDeleteRecipient.UseVisualStyleBackColor = true;
+            this.ButtonDeleteRecipient.Click += new System.EventHandler(this.ButtonDeleteRecipient_Click);
             // 
             // TextBoxTags
             // 
@@ -142,6 +144,7 @@
             0,
             0,
             0});
+            this.NumericUpDownMinutes.ValueChanged += new System.EventHandler(this.NumericUpDownTime_ValueChanged);
             // 
             // NumericUpDownDays
             // 
@@ -154,6 +157,7 @@
             this.NumericUpDownDays.Name = "NumericUpDownDays";
             this.NumericUpDownDays.Size = new System.Drawing.Size(61, 22);
             this.NumericUpDownDays.TabIndex = 35;
+            this.NumericUpDownDays.ValueChanged += new System.EventHandler(this.NumericUpDownTime_ValueChanged);
             // 
             // NumericUpDownHours
             // 
@@ -166,6 +170,7 @@
             this.NumericUpDownHours.Name = "NumericUpDownHours";
             this.NumericUpDownHours.Size = new System.Drawing.Size(61, 22);
             this.NumericUpDownHours.TabIndex = 34;
+            this.NumericUpDownHours.ValueChanged += new System.EventHandler(this.NumericUpDownTime_ValueChanged);
             // 
             // ButtonAddRecipient
             // 
@@ -175,6 +180,7 @@
             this.ButtonAddRecipient.TabIndex = 33;
             this.ButtonAddRecipient.Text = "Add recipient";
             this.ButtonAddRecipient.UseVisualStyleBackColor = true;
+            this.ButtonAddRecipient.Click += new System.EventHandler(this.ButtonAddRecipient_Click);
             // 
             // ButtonBeginSending
             // 
@@ -184,6 +190,7 @@
             this.ButtonBeginSending.TabIndex = 32;
             this.ButtonBeginSending.Text = "Start sending news";
             this.ButtonBeginSending.UseVisualStyleBackColor = true;
+            this.ButtonBeginSending.Click += new System.EventHandler(this.ButtonBeginSending_Click);
             // 
             // ListBoxFeeds
             // 
@@ -225,6 +232,7 @@
             this.ListBoxFeedItems.Name = "ListBoxFeedItems";
             this.ListBoxFeedItems.Size = new System.Drawing.Size(331, 500);
             this.ListBoxFeedItems.TabIndex = 28;
+            this.ListBoxFeedItems.SelectedIndexChanged += new System.EventHandler(this.ListBoxFeedItems_SelectedIndexChanged);
             // 
             // WebBrowserMain
             // 
@@ -246,6 +254,7 @@
             this.ButtonAddFeed.TabIndex = 26;
             this.ButtonAddFeed.Text = "Add RSS feed";
             this.ButtonAddFeed.UseVisualStyleBackColor = true;
+            this.ButtonAddFeed.Click += new System.EventHandler(this.ButtonAddFeed_Click);
             // 
             // Form1
             // 
@@ -274,6 +283,7 @@
             this.Name = "Form1";
             this.Text = "no";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownDays)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownHours)).EndInit();

@@ -29,6 +29,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "CommonLibrary\CommonLibrary.csproj", "{C471FF36-FA02-43D8-89E6-E158E322AD6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormClient", "FormClient\FormClient.csproj", "{1C8D5CDD-09AF-4B36-8D25-9DFF18E80E4C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BB34A456-968A-46DA-85F4-CB820F10298F} = {BB34A456-968A-46DA-85F4-CB820F10298F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
