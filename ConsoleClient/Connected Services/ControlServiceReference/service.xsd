@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/ControlService" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/CommonLibrary" />
   <xs:element name="ProcessFeeds">
     <xs:complexType>
       <xs:sequence>
@@ -14,7 +14,7 @@
   <xs:element name="ProcessFeedsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ControlService" minOccurs="0" name="ProcessFeedsResult" nillable="true" type="q4:SynItems" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CommonLibrary" minOccurs="0" name="ProcessFeedsResult" nillable="true" type="q4:SynItems" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

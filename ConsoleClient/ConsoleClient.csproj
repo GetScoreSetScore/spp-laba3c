@@ -50,21 +50,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\FilterServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\LoadServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\MailServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="ClientMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,10 +58,7 @@
     <None Include="Connected Services\ControlServiceReference\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ControlServiceReference\ConsoleClient.ControlServiceReference.SynItems.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ControlServiceReference\ControlService.xsd">
+    <None Include="Connected Services\ControlServiceReference\CommonLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ControlServiceReference\service.wsdl" />
@@ -86,48 +68,7 @@
     <None Include="Connected Services\ControlServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\FilterServiceReference\ConsoleClient.FilterServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\FilterServiceReference\FilterService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\FilterServiceReference\service.wsdl" />
-    <None Include="Connected Services\FilterServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\FilterServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\LoadServiceReference\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\LoadServiceReference\ConsoleClient.LoadServiceReference.SynItems.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\LoadServiceReference\LoadService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\LoadServiceReference\service.wsdl" />
-    <None Include="Connected Services\LoadServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\LoadServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\MailServiceReference\ConsoleClient.MailServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\MailServiceReference\MailService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\MailServiceReference\service.wsdl" />
-    <None Include="Connected Services\MailServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\MailServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Properties\DataSources\CommonLibrary.SynItems.datasource" />
     <None Include="Properties\DataSources\System.ServiceModel.Syndication.Rss20FeedFormatter.datasource" />
   </ItemGroup>
   <ItemGroup>
@@ -135,9 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ControlServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\FilterServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\LoadServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\MailServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ControlServiceReference\configuration91.svcinfo" />
@@ -147,42 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ControlServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\FilterServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\FilterServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\FilterServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LoadServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LoadServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LoadServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MailServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MailServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MailServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

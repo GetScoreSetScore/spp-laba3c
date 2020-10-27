@@ -29,7 +29,7 @@ namespace ServiceHostNamespace
         static ServiceHost InitializeHost(string BaseUri,Type Itype, Type type)
         {
             ServiceHost host = new ServiceHost(type, new Uri(BaseUri));
-            host.AddServiceEndpoint(Itype, new WSHttpBinding(), "");
+            host.AddServiceEndpoint(Itype, new WSHttpBinding() { MaxReceivedMessageSize = 2000000000, MaxBufferPoolSize = 2000000000 }, "");
             ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
             smb.HttpGetEnabled = true;
             host.Description.Behaviors.Add(smb);

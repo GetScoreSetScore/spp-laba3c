@@ -76,10 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\FilterServiceReferenceCon\ControlService.FilterServiceReferenceCon.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\FilterServiceReferenceCon\Arrays.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\FilterServiceReferenceCon\FilterService.xsd">
+    <None Include="Connected Services\FilterServiceReferenceCon\CommonLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\FilterServiceReferenceCon\service.wsdl" />
@@ -102,10 +102,10 @@
     <None Include="Connected Services\LoadServiceReferenceCon\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\MailServiceReferenceCon\ControlService.MailServiceReferenceCon.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\MailServiceReferenceCon\Arrays.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\MailServiceReferenceCon\MailService.xsd">
+    <None Include="Connected Services\MailServiceReferenceCon\CommonLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\MailServiceReferenceCon\service.wsdl" />

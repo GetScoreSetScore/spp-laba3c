@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleClient.ControlServiceReference;
-using ConsoleClient.FilterServiceReference;
-using ConsoleClient.MailServiceReference;
+using CommonLibrary;
 namespace ConsoleClient
 {
     class ClientMain
@@ -19,15 +18,10 @@ namespace ConsoleClient
             recipients.Add("andy844551@gmail.com");
             tags.Add("development");
             ControlClient controlClient = new ControlClient();
-            FilterClient filterClient = new FilterClient();
-            MailClient mailClient = new MailClient();
             Console.ReadLine();
-            Console.WriteLine(filterClient.GetData("test"));
-            Console.WriteLine(mailClient.GetData("test"));
 
             SynItems items = controlClient.ProcessFeeds(urls.ToArray(), tags.ToArray(),  recipients.ToArray());
             Console.ReadLine();
-
         }
     }
 }

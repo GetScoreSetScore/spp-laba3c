@@ -4,28 +4,52 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-
+using CommonLibrary;
+using System.Net.Mail;
+using System.Net;
 namespace MailService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Mail : IMail
     {
-        public string GetData(string value)
+        public void SendMail(SynItems items, List<string> recipients)
         {
-            return value+"Mail";
-        }
+            try
+            {
+                string message = message = string.Join(string.Empty,
+                    items.Links.Zip(items.Titles, (first, second) => "<a href=\"" + first + "\">" + second + "</a><br>"));
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+                string subject = "Selected RSS feed at " + DateTime.Now;
+                string sender = "phpmailerlaba@gmail.com";
+                string password = "phplabapass";
+                foreach (var recipient in recipients)
+                {
+                    Send(sender, password, recipient, message, subject);
+                }
+            }
+            catch { }
+        }
+        public void Send(string mailFrom, string password, string mailTo, string message, string subject)
         {
-            if (composite == null)
+            string username = mailFrom.Split('@')[0];
+            MailMessage mailmessage = new MailMessage(mailFrom, mailTo, subject, message);
+            mailmessage.IsBodyHtml = true;
+            try
             {
-                throw new ArgumentNullException("composite");
+                SmtpClient client = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    EnableSsl = true,
+                    Credentials = new NetworkCredential(username, password)
+
+                };
+                client.Send(mailmessage);
+                client.Dispose();
             }
-            if (composite.BoolValue)
+            catch (Exception ex)
             {
-                composite.StringValue += "Suffix";
+                Console.WriteLine(ex.ToString());
             }
-            return composite;
+            mailmessage.Dispose();
         }
     }
 }

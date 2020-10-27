@@ -25,7 +25,8 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d27c08a2-218d-46d9-ba8e-b85d90e1271d" SourceId="1" SourceUrl="http://localhost:8733/FilterService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="5ce74275-b68a-4acd-a243-bfa9094e5ff2" SourceId="1" SourceUrl="http://localhost:8733/FilterService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="34fc79c7-69b0-42f7-ad43-a7fc0ba11751" SourceId="1" SourceUrl="http://localhost:8733/FilterService/mex" />
-    <MetadataFile FileName="FilterService.xsd" MetadataType="Schema" ID="9fb3e213-7e57-4ab4-94a1-961621379239" SourceId="1" SourceUrl="http://localhost:8733/FilterService/mex" />
+    <MetadataFile FileName="CommonLibrary.xsd" MetadataType="Schema" ID="675eaece-49f6-447b-9258-144456584847" SourceId="1" SourceUrl="http://localhost:8733/FilterService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="007fca9d-dacc-421c-a57e-d33fb88f5653" SourceId="1" SourceUrl="http://localhost:8733/FilterService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

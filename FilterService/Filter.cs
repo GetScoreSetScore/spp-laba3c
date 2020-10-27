@@ -4,28 +4,38 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-
+using CommonLibrary;
 namespace FilterService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Filter : IFilter
     {
-        public string GetData(string value)
+        public SynItems FilterItems(SynItems items, List<string> tags)
         {
-            return value+"Filter";
-        }
+            SynItems result = new SynItems();
+            for (int i = 0; i < items.Summaries.Count; i++)
+            {
+                if (tags.Any())
+                {
+                    foreach (string t in tags)
+                    {
+                        if (items.Summaries[i].ToUpper().Contains(t.ToUpper()))
+                        {
+                            result.Summaries.Add(items.Summaries[i]);
+                            result.Links.Add(items.Links[i]);
+                            result.Titles.Add(items.Titles[i]);
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    result.Summaries.Add(items.Summaries[i]);
+                    result.Links.Add(items.Links[i]);
+                    result.Titles.Add(items.Titles[i]);
+                }
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            return result;
         }
     }
 }
